@@ -54,3 +54,23 @@ jobs:
 
       - store_test_results:
           path: _build/test/junit
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$7de75f68-6798-4ae2-b04a-c8971abeacf1@git.heroku.com/zogo-elixir-development.git master
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
