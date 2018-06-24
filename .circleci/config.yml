@@ -67,14 +67,6 @@ jobs:
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - run: mix do deps.get, compile
-      - run:
-          name: Update MIX_ENV environment variable
-          command: |
-            echo "export MIX_ENV=$(if [ '$CIRCLE_BRANCH' '==' 'master' ]; then echo 'prod'; else echo 'staging'; fi)" >> $BASH_ENV
-            source $BASH_ENV
-      - run: MIX_ENV=$MIX_ENV mix release --env $MIX_ENV
-      - run: tar -zcvf $CIRCLE_SHA1.tar.gz bin appspec.yml VERSION _build/$MIX_ENV/rel/app/releases/$(cat VERSION)/app.tar.gz
-      - run:
           name: Deploy Master to Heroku
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
