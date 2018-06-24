@@ -59,7 +59,7 @@ jobs:
           path: _build/test/junit
   deploy:
     docker:
-      - image: marcelocg/phoenix
+      - image: bitwalker/alpine-elixir-phoenix
     steps:
       - checkout
       - run:
