@@ -1,6 +1,6 @@
 # circleci-demo-elixir-phoenix
 
-[![CircleCI](https://circleci.com/gh/CircleCI-Public/circleci-demo-elixir-phoenix.svg?style=svg)](https://circleci.com/gh/CircleCI-Public/circleci-demo-elixir-phoenix)
+[![CircleCI](https://circleci.com/gh/nvqchau/circleci-demo-elixir-phoenix.svg?style=svg)](https://circleci.com/gh/nvqchau/circleci-demo-elixir-phoenix)
 
 To start your Phoenix app:
 
