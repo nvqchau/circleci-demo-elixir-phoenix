@@ -62,7 +62,6 @@ jobs:
       - image: circleci/elixir:1.5
         environmen:
           SHELL: /bin/bash
-          MIX_ENV: staging
     steps:
       - checkout
       - run: mix local.hex --force
@@ -73,7 +72,7 @@ jobs:
           command: |
             echo "export MIX_ENV=$(if [ '$CIRCLE_BRANCH' '==' 'master' ]; then echo 'prod'; else echo 'staging'; fi)" >> $BASH_ENV
             source $BASH_ENV
-      - run: MIX_ENV=staging mix release --env $MIX_ENV
+      - run: MIX_ENV=$MIX_ENV mix release --env $MIX_ENV
       - run: tar -zcvf $CIRCLE_SHA1.tar.gz bin appspec.yml VERSION _build/$MIX_ENV/rel/app/releases/$(cat VERSION)/app.tar.gz
       - run:
           name: Deploy Master to Heroku
