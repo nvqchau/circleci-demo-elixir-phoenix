@@ -39,6 +39,7 @@ defmodule HelloPhoenix.Mixfile do
      {:gettext, "~> 0.15"},
      {:cowboy, "~> 1.0"},
      {:distillery, "~> 1.5", runtime: false},
+     {:tapex, "~> 0.1.0", only: :test},
      {:junit_formatter, ">= 0.0.0", only: :test}]
   end
 

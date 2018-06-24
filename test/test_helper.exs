@@ -5,5 +5,8 @@ File.mkdir_p!(junit_folder)
 ExUnit.configure formatters: [JUnitFormatter, ExUnit.CLIFormatter]
 ExUnit.start
 
+ExUnit.configure formatters: [Tapex]
+ExUnit.start
+
 Ecto.Adapters.SQL.Sandbox.mode(HelloPhoenix.Repo, :manual)
 
