@@ -59,14 +59,9 @@ jobs:
           path: _build/test/junit
   deploy:
     docker:
-      - image: circleci/elixir:1.5
-        environmen:
-          SHELL: /bin/bash
+      - image: buildpack-deps:trusty
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
-      - run: mix do deps.get, compile
       - run:
           name: Deploy Master to Heroku
           command: |
