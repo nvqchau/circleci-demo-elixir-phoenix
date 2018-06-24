@@ -38,6 +38,7 @@ defmodule HelloPhoenix.Mixfile do
      {:phoenix_live_reload, "~> 1.1", only: :dev},
      {:gettext, "~> 0.15"},
      {:cowboy, "~> 1.0"},
+     {:distillery, "~> 1.5", runtime: false},
      {:junit_formatter, ">= 0.0.0", only: :test}]
   end
 
