@@ -52,7 +52,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run: mix ecto.reset
-      - run: mix phoenix.digest
+      - run: mix phx.digest
       - run: mix test
 
       - store_test_results:
@@ -65,8 +65,8 @@ jobs:
           MIX_ENV: staging
     steps:
       - checkout
-      - run: mix local.hex
-      - run: mix local.rebar
+      - run: mix local.hex --force
+      - run: mix local.rebar --force
       - run: mix do deps.get, compile
       - run:
           name: Update MIX_ENV environment variable
